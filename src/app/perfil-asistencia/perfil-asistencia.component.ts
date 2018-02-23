@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { AsistenciaService }  from '../asistencia.service';
 import { QRCodeComponent } from 'angular2-qrcode';
 import { Perfil } from './perfil'; 
+import { clearInterval } from 'timers';
 
 @Component({
   selector: 'app-perfil-asistencia',
   templateUrl: './perfil-asistencia.component.html',
   styleUrls: ['./perfil-asistencia.component.css']
 })
-export class PerfilAsistenciaComponent implements OnInit {
+export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
 
   tipoInstitucion="UNIDAD ACADEMICA";
   nombrePrimario="AMERICANO";
@@ -18,6 +19,7 @@ export class PerfilAsistenciaComponent implements OnInit {
   imgPatter="https://image.freepik.com/free-vector/abstract-background-with-a-3d-pattern_1319-68.jpg"
   imgBackground="" 
   qr:string;
+  fnc:any;
   constructor(
     private serve:AsistenciaService
   ) { 
@@ -42,8 +44,15 @@ export class PerfilAsistenciaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPerfil();
+    
+    this.fnc=setInterval(()=>{
+      this.getPerfil();
+      console.log("pedido get ")
+    },1000)
     this.imgBackground=this.img?this.img:this.imgPatter;
+  }
+  ngOnDestroy(){
+    clearInterval(this.fnc);
   }
   
 
