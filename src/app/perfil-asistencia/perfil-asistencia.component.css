@@ -217,5 +217,13 @@ clear: left;
         margin-top: -47px;
         width: 148px;
         height: 166px;
+    
+    }
+    .campoLn{
+    
+        margin-left: auto;
+        margin-right: auto;
+        
+        
     }
 }

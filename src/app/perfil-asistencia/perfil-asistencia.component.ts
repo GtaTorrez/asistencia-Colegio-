@@ -2,7 +2,7 @@ import { Component, OnInit,OnDestroy } from '@angular/core';
 import { AsistenciaService }  from '../asistencia.service';
 import { QRCodeComponent } from 'angular2-qrcode';
 import { Perfil } from './perfil'; 
-import { clearInterval } from 'timers';
+
 
 @Component({
   selector: 'app-perfil-asistencia',
@@ -27,7 +27,8 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   }
 
   getPerfil(){
-    this.serve.getPersona().subscribe(data=>{
+    
+    this.serve.getPersonas().subscribe(data=>{
       console.log(data);
       this.perfil.nroMatricula=data.id;
         this.perfil.paterno=data.paterno;
@@ -44,12 +45,7 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
-    
-    this.fnc=setInterval(()=>{
-      this.getPerfil();
-      console.log("pedido get ")
-    },1000)
-    this.imgBackground=this.img?this.img:this.imgPatter;
+  this.getPerfil();
   }
   ngOnDestroy(){
     clearInterval(this.fnc);
