@@ -40,7 +40,7 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
         this.perfil.qr=data.identificacion;
         this.qr=data.identificacion;
         this.perfil.hora_salida=data.hora_salida;
-        this.perfil.hora_entrada=data.hora_entrada;
+        this.perfil.hora_llegada=data.hora_llegada;
     },err=>{
       console.error(err)
     })
