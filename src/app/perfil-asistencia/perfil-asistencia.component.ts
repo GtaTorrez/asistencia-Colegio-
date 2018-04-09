@@ -36,7 +36,7 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
         this.perfil.nombre=data.nombre;
         this.perfil.curso=data.curso;
         this.perfil.turno=data.turno;
-        this.perfil.img="http://192.168.0.102:1337/"+data.img;
+        this.perfil.img="http://127.0.0.1:1337/"+data.img;
         this.perfil.qr=data.identificacion;
         this.qr=data.identificacion;
         this.perfil.hora_salida=data.hora_salida;
