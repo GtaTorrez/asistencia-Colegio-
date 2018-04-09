@@ -9,4 +9,7 @@ export class Perfil{
     public qr:string;
     celular:string;
     id:number;
+    hora_salida:string;
+    hora_entrada:string;
+    identificacion:string;
 }

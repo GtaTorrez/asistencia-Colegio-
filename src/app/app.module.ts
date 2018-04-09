@@ -12,7 +12,7 @@ import { QRCodeModule } from 'angular2-qrcode';
 
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 
-const config:SocketIoConfig={url:'http://192.168.0.100:1338' ,options:{}};
+const config:SocketIoConfig={url:'http://192.168.0.102:1338' ,options:{}};
 
 @NgModule({
   declarations: [

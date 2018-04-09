@@ -23,7 +23,6 @@ export class AsistenciaService {
     return this.socket
       .fromEvent<any>(this.event)
       .map( data => {
-        console.log(data)
         return data;
       });
   }

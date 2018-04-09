@@ -15,30 +15,32 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   nombrePrimario="AMERICANO";
   nombreSecundario="INSTITUTO";
   perfil:Perfil=new Perfil();
-  img="./assets/img/fondof.jpg"
-  imgPatter="https://image.freepik.com/free-vector/abstract-background-with-a-3d-pattern_1319-68.jpg"
+  img="assets/img/fondof.jpg";
+  imgPatter="https://image.freepik.com/free-vector/abstract-background-with-a-3d-pattern_1319-68.jpg";
   imgBackground="" 
   qr:string;
   fnc:any;
   constructor(
     private serve:AsistenciaService
   ) { 
-    
+    this.imgBackground= this.imgBackground?this.imgBackground:this.img;
   }
 
   getPerfil(){
     
     this.serve.getPersonas().subscribe(data=>{
       console.log(data);
-      this.perfil.nroMatricula=data.id;
+      this.perfil.identificacion=data.identificacion;
         this.perfil.paterno=data.paterno;
         this.perfil.materno=data.materno;
         this.perfil.nombre=data.nombre;
-        this.perfil.curso="Sexto A";
-        this.perfil.turno="tarde";
-        this.perfil.img="";
-        this.perfil.qr=data.nombre+data.cedula;
-        this.qr=data.ci+" "+ data.nombre+" "+data.id;
+        this.perfil.curso=data.curso;
+        this.perfil.turno=data.turno;
+        this.perfil.img="http://192.168.0.102:1337/"+data.img;
+        this.perfil.qr=data.identificacion;
+        this.qr=data.identificacion;
+        this.perfil.hora_salida=data.hora_salida;
+        this.perfil.hora_entrada=data.hora_entrada;
     },err=>{
       console.error(err)
     })
@@ -48,7 +50,7 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   this.getPerfil();
   }
   ngOnDestroy(){
-    clearInterval(this.fnc);
+    
   }
   
 
