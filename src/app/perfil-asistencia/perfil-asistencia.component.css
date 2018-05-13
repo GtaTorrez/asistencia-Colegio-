@@ -67,7 +67,15 @@ h1.tituloIns{
 .bloqueimg{
     /* position: relative;
     top: 50px; */
-    margin-top: 35px;
+    width: auto;
+}
+.bloqueimg img{
+    /* position: relative;
+    top: 50px; */
+    display: block;
+    width: auto;
+    height: 300px;
+    margin: 0px auto;
 }
 
 .registro{
@@ -155,7 +163,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f92727', end
 
 .casilla{
     margin: 0px;
+    margin-top:4px;
     display: block;
+}
+.casillad{
+    display: inline-block;
+    width: 44%;
+    margin-right: 2%; 
+    margin-left: 2%;
 }
 .container{
     margin-top: 4%;
@@ -174,12 +189,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f92727', end
     display: block;
     float: left;
     width: 60%;
-
+    height: 100%;
 }
 .ancho40{
     display: block;
     float: left;
     width: 30%;
+    height: 100%;
 
 }
 .ancho50{

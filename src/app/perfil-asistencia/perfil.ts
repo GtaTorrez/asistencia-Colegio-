@@ -5,7 +5,7 @@ export class Perfil{
     public nombre:string=" ";
     public curso:string=" ";
     public turno:string=" ";
-    public img:string=" ";
+    public img:string="";
     public qr:string=" ";
     celular:string=" ";
     id:number;

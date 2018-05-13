@@ -33,43 +33,44 @@
             </div>
             <div  class="datos">
                 <div class="casilla" >
-                    <div>
-                      <h3 class="titulo degra">APELLIDOS Y NOMBRES</h3>  
-                    </div>
-                    <p class="campo fontBlack ">{{perfil.paterno | uppercase }} {{perfil.materno | uppercase }} {{perfil.nombre | uppercase }}</p>  
+                  <div>
+                    <h3 class="titulo degra">APELLIDOS Y NOMBRES</h3>  
                   </div>
-                  <div class="casilla" >
-                    <h3 class="titulo degra">CURSO</h3>  
-                    <p class="campo fontBlack">{{perfil.curso | uppercase }}</p>  
+                  <p class="campo fontBlack ">{{perfil.paterno | uppercase }} {{perfil.materno | uppercase }} {{perfil.nombre | uppercase }}</p>  
+                </div>
+                <div class="casilla" >
+                  <h3 class="titulo degra">CURSO</h3>  
+                  <p class="campo fontBlack">{{perfil.curso | uppercase }}</p>  
+                </div>
+                <div class="casilla" >
+                  <h3 class="titulo degra">TURNO</h3>  
+                  <p class="campo fontBlack">{{perfil.turno | uppercase }}</p>  
+                </div>
+                <div class="casilla" >
+                  <div class="casillad" >
+                    <h3 class="titulo degra">INGRESO</h3>  
+                    <p class="campo fontBlack">{{perfil.hora_llegada}} Hrs</p>  
                   </div>
-                  <div class="casilla" >
-                    <h3 class="titulo degra">TURNO</h3>  
-                    <p class="campo fontBlack">{{perfil.turno | uppercase }}</p>  
-                  </div>
+                  <div class="casillad" >
+                    <h3 class="titulo degra">SALIDA</h3>  
+                    <p class="campo fontBlack">{{perfil.hora_salida}} Hrs</p>  
+                  </div>  
+                </div>
             </div>
-            <div class="casilla campoLn " >
-                  
-              <div class="textCenter registro" >
-                  <h3 class="tituloES degra" >INGRESO</h3>  
-                  <p class="campoES fontBlack"> {{perfil.hora_llegada }} Hrs</p>
-              </div>
-              <div class=" textCenter registro" >
-                  <h3 class="tituloES degra">SALIDA</h3>  
-                  <p class="campoES fontBlack"> {{perfil.hora_salida  }} Hrs </p>
-              </div>
-                
-              </div>
           </div>
         </div>
         <div  class="ancho40">
           
           <div class="bloqueimg">
-            <img [src]="perfil.img ? perfil.img : './assets/img/people.png'" width="180px" height="180px" alt="">
+            <img [src]="perfil.img ? perfil.img : './assets/img/people.png'" alt="">
           </div>
-          <div class="bloque center">
-              <qr-code  [value]="'Yo world!'" size="130"></qr-code>
+          <div  class="datos">
+
+            <div class="casilla" *ngFor="let tutor of perfil.tutores ; let i=index" >
+              <h3 class="titulo degra">Tutor {{i}}</h3>  
+              <p class="campo fontBlack">{{tutor }} .</p>  
+            </div>
           </div>
-        
         </div>
       </div>
     </section>
