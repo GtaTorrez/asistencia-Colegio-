@@ -47,7 +47,7 @@ h1.tituloIns{
 
 .logo{
     position: absolute;
-    left: 150px;
+    left: 10%;
     margin-top: -40px;
 }
 .title{
@@ -215,6 +215,7 @@ h3{
 .foot{
 clear: left;
 }
+
 @media only screen and (max-width:950px ) {
     .ancho60{
         clear: left;
@@ -230,10 +231,10 @@ clear: left;
         width: 250px;
     }
     .logo{
-        left: 74px;
-        margin-top: -47px;
-        width: 148px;
-        height: 166px;
+        
+        margin-top: -25px;
+        width: 128px;
+        height: 152px
     
     }
     .campoLn{
@@ -242,5 +243,17 @@ clear: left;
         margin-right: auto;
         
         
+    }
+    .matricula{
+        margin: 15px 35px;
+    }
+}
+
+@media only screen and (max-width: 440px){
+    .logo{   
+        left: 0%;
+        margin-top: -17px;
+        width: 100px;
+        height: 132px;
     }
 }

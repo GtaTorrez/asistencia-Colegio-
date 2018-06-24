@@ -12,4 +12,5 @@ export class Perfil{
     hora_salida:string=" ";
     hora_llegada:string=" ";
     identificacion:string=" ";
+    tutores:any;
 }

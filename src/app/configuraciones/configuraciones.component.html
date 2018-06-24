@@ -1,0 +1,46 @@
+<div class="container">
+	<header>
+		<div>
+			
+		</div>
+		<h1 class="titulo">CONFIGURACIONES</h1>
+	</header>
+	<nav>
+      <li>
+        <ul>
+          <a routerLink="">
+            <img src="./assets/img/config_100px.png">
+          </a>
+        </ul>
+        <ul>
+          <a routerLink="">
+            <img src="./assets/img/config_100px.png">
+          </a>
+        </ul>
+      </li>
+    </nav>
+    <main class="encabezado">
+    	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+	      <div class="form-group">
+	        
+	        <img  [src]="img" >
+	        <label for="fondo"  class="custom-file-upload " >
+	        	<input type="file" id="fondo" name="fondo" (change)="onFileChange($event)" #fileInput>
+	        </label>
+	        <label class="custom">
+	          	<button type="submit" color="accent"  > Cambiar </button>
+	        </label>
+	        <label class="custom">
+	          	<button type="button" color="warn"  (click)="restaurar()"> Restaurar predeterminado</button>
+	        </label>
+
+	        <label class="custom">
+	          	<button type="button" color="accent" (click)="getPuertos()"  > Puertos </button>
+	        </label>
+
+	      </div>
+	    </form>
+    </main>
+
+</div>
+
