@@ -15,6 +15,7 @@ export class ConfiguracionesComponent implements OnInit {
 	form: FormGroup;
 	@ViewChild('fileInput') fileInput: ElementRef;
   img;
+  fileArchivo:any;
   constructor(
   	private observador:ObservadorFondoService,
   	private fb: FormBuilder
@@ -39,6 +40,8 @@ export class ConfiguracionesComponent implements OnInit {
   }
   onFileChange(event) {
     console.log("CAMBIO DE IMAGEN");
+    this.fileArchivo=this.fileInput.nativeElement.files.item(0);
+    console.log(this.fileArchivo); 
   }
   getFoto(){
     this.observador.getFoto().subscribe((data:any)=>{
@@ -59,16 +62,13 @@ export class ConfiguracionesComponent implements OnInit {
         this.observador.getFoto().subscribe((fotos:any)=>{
           foto=fotos;
           localStorage.setItem("fondo",fotos.fondo);
-          console.log(localStorage.getItem("fondo"))
+          console.log(localStorage.getItem("fondo"));;
         this.observador.cambiarEstado(fotos.fondo);
-
+         // window.location.reload(true);
         });
-       
       }
-      
-      alert('hecho')
     },err=>{
-      alert('error')
+      alert('Error al intentar subir la foto')
       console.error(err)
     })
 
@@ -82,7 +82,7 @@ export class ConfiguracionesComponent implements OnInit {
 
   restaurar(){
     localStorage.clear();
-    this.observador.cambiarEstado("");
+    this.observador.cambiarEstado("assets/img/fondof.jpg");
   }
 
 

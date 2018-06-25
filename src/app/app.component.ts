@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
   constructor(private observador:ObservadorFondoService){
     console.log(this.imgBackground);
   	this.subscription=this.observador.observableFondo.subscribe(fondo=>{
-      this.imgBackground=fondo;
+      this.imgBackground=fondo+'?nocache='+parseInt(Math.random()*100+"");
   	});
   	
   }
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit{
 
     this.imgBackground="assets/img/fondof.jpg";
     console.log(this.imgBackground);
-    if(localStorage.getItem("fondo")!=="undefined"){
+    if(("fondo" in localStorage)){
       console.log("true");
       console.log(this.imgBackground);
       this.imgBackground=localStorage.getItem("fondo");

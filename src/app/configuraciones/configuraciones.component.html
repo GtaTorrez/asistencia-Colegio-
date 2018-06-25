@@ -1,9 +1,9 @@
 <div class="container">
+	<div class="config">	
 	<header>
-		<div>
-			
-		</div>
 		<h1 class="titulo">CONFIGURACIONES</h1>
+		<div class="encabezado">
+		</div>
 	</header>
 	<nav>
       <li>
@@ -12,35 +12,39 @@
             <img src="./assets/img/config_100px.png">
           </a>
         </ul>
-        <ul>
-          <a routerLink="">
-            <img src="./assets/img/config_100px.png">
-          </a>
-        </ul>
       </li>
     </nav>
-    <main class="encabezado">
-    	<form [formGroup]="form" (ngSubmit)="onSubmit()">
-	      <div class="form-group">
-	        
-	        <img  [src]="img" >
-	        <label for="fondo"  class="custom-file-upload " >
-	        	<input type="file" id="fondo" name="fondo" (change)="onFileChange($event)" #fileInput>
-	        </label>
-	        <label class="custom">
-	          	<button type="submit" color="accent"  > Cambiar </button>
-	        </label>
-	        <label class="custom">
-	          	<button type="button" color="warn"  (click)="restaurar()"> Restaurar predeterminado</button>
-	        </label>
+    <main>
+    	<div class="contenedorAjustes">
+	    	<form [formGroup]="form" (ngSubmit)="onSubmit()">
+		      <div class="form-group">
+		        <div>
+			        <label for="fondo"  class="custom btn-file-input" >
+			        	<input type="file" id="fondo" name="fondo" (change)="onFileChange($event)" #fileInput>
+			        	
+			        	<img src="assets/img/Upload.png">
+			        </label>
+			        <div *ngIf="fileArchivo" class="nameFile">{{fileArchivo.name}}</div>
+			        <label class="custom cambio">
+			          	<button type="submit" class="accent" > Cambiar </button>
+			        </label>
+		        </div>
 
-	        <label class="custom">
-	          	<button type="button" color="accent" (click)="getPuertos()"  > Puertos </button>
-	        </label>
+		        
+		        <button type="button" class="restaurar" (click)="restaurar()"> Restaurar predeterminado</button>
+		        
 
-	      </div>
-	    </form>
+		      </div>
+		    </form>
+<!--     		<div>
+    			
+		        <label class="custom">
+		          	<button type="button" color="accent" (click)="getPuertos()"  > Puertos </button>
+		        </label>
+    		</div> -->
+    	</div>
     </main>
+	</div>
 
 </div>
 
