@@ -39,44 +39,42 @@ export class ConfiguracionesComponent implements OnInit {
     return input;
   }
   onFileChange(event) {
-    console.log("CAMBIO DE IMAGEN");
     this.fileArchivo=this.fileInput.nativeElement.files.item(0);
-    console.log(this.fileArchivo); 
   }
   getFoto(){
     this.observador.getFoto().subscribe((data:any)=>{
-      console.log(data);
       this.img=data.fondo;
     })
   }
 
   onSubmit() {
     const formModel = this.prepareSave();
-    // In a real-world app you'd have a http request / service call here like
-    // this.observador.postFoto('apiUrl', formModel)
+    if(this.fileInput.nativeElement.files.item(0)){
     this.observador.postFoto(formModel).subscribe((data:any)=>{
-      console.log("echo")
-      // console.log(data)
       if (data.fondo) {
         let foto:any;
+        console.log(data);
         this.observador.getFoto().subscribe((fotos:any)=>{
-          foto=fotos;
           localStorage.setItem("fondo",fotos.fondo);
-          console.log(localStorage.getItem("fondo"));;
-        this.observador.cambiarEstado(fotos.fondo);
-         // window.location.reload(true);
+          this.observador.cambiarEstado(fotos.fondo);
+        //window.location.reload(true);
+        alert("Espere mientras se hace el cambio");
+        },err=>{
+          console.log(err)
         });
       }
     },err=>{
       alert('Error al intentar subir la foto')
-      console.error(err)
-    })
+      console.log(err);
+    });
+  }else{
+    alert("Debe escoge una imagen")
+  }
 
   }
 
   getPuertos(){
     this.observador.getPuertos().subscribe((data:any)=>{
-      console.log(data);
     })
   }
 

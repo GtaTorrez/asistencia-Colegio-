@@ -15,7 +15,6 @@ export class AsistenciaService {
   }
 
   sendMessage(msg:string){
-    console.log("Envio");
     this.socket.emit(this.event,msg);
   }
 
