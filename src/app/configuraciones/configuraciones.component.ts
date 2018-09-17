@@ -16,12 +16,13 @@ export class ConfiguracionesComponent implements OnInit {
 	@ViewChild('fileInput') fileInput: ElementRef;
   img;
   fileArchivo:any;
+  avanzados:boolean;
   constructor(
   	private observador:ObservadorFondoService,
   	private fb: FormBuilder
   	) {
   	this.createForm();
-
+      this.avanzados=false;
   }
 
   ngOnInit() {
@@ -31,6 +32,13 @@ export class ConfiguracionesComponent implements OnInit {
       name: ['', Validators.required],
       fondo: null
     });
+  }
+  
+  verAvanzados(){
+    if(!this.avanzados){
+      alert("Realizar cambios en las configuraciones puede hacer que el programa no funcione bien.");
+    }
+    this.avanzados=!this.avanzados;
   }
 
   private prepareSave(): any {
@@ -72,12 +80,7 @@ export class ConfiguracionesComponent implements OnInit {
   }
 
   }
-
-  getPuertos(){
-    this.observador.getPuertos().subscribe((data:any)=>{
-    })
-  }
-
+  
   restaurar(){
     localStorage.clear();
     this.observador.cambiarEstado("assets/img/fondof.jpg");

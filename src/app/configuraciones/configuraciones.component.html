@@ -26,7 +26,7 @@
 			        </label>
 			        <div *ngIf="fileArchivo" class="nameFile">{{fileArchivo.name}}</div>
 			        <label class="custom cambio">
-			          	<button type="submit" class="accent" > Cambiar </button>
+			          	<button type="submit" class="accent" > Cambiar fondo</button>
 			        </label>
 		        </div>
 
@@ -36,14 +36,17 @@
 
 		      </div>
 		    </form>
-<!--     		<div>
-    			
-		        <label class="custom">
-		          	<button type="button" color="accent" (click)="getPuertos()"  > Puertos </button>
-		        </label>
-    		</div> -->
-    	</div>
-    </main>
+
+			</div>
+		</main>
+		<div class="contenedorAjustesAvanzado">
+			<app-visualizador-puertos></app-visualizador-puertos>
+			<button (click)="verAvanzados()" >Avanzado</button>
+		</div>
+
+		<div *ngIf="avanzados" class="contenedorAjustesAvanzado">
+			<app-config-avanzado></app-config-avanzado>
+		</div>
 	</div>
 
 </div>

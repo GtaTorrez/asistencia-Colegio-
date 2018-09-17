@@ -26,10 +26,5 @@ export class ObservadorFondoService {
   	let Headers=new HttpHeaders().set('Content-Type', 'multipart/form-data');
   	return this.http.post(this.base+'/upload',body);
   }
-
-  getPuertos(){
-  	return this.http.get(this.base+'/puertos');
-  }
-	  
-
+  
 }

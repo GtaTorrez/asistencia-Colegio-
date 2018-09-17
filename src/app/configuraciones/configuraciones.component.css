@@ -24,6 +24,13 @@
     background-color: #e2e2e2;
 
 }
+.contenedorAjustesAvanzado{
+	margin-top: 16px;
+	margin-left: 10px;
+    width: 80%;
+    background-color: #e2e2e2;
+
+}
 
 button{
 	border: 0px;

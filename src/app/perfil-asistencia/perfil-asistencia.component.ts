@@ -15,38 +15,44 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   nombrePrimario="AMERICANO";
   nombreSecundario="INSTITUTO";
   perfil:Perfil=new Perfil();
-  img="assets/img/fondof.jpg";
-  imgPatter="https://image.freepik.com/free-vector/abstract-background-with-a-3d-pattern_1319-68.jpg";
-  imgBackground="" 
-  qr:string;
   fnc:any;
+  titulo:boolean=true;
   constructor(
     private serve:AsistenciaService
   ) { 
-    this.imgBackground= this.imgBackground?this.imgBackground:this.img;
+    console.log("Sucribiendose al sockets")
+    this.getPerfil();
   }
 
   getPerfil(){
-    
+    // console.log("Sucribiendose al sockets")
     this.serve.getPersonas().subscribe(data=>{
+      // console.log("conectado al sockets")
       this.perfil.identificacion=data.identificacion;
         this.perfil.paterno=data.paterno;
         this.perfil.materno=data.materno;
         this.perfil.nombre=data.nombre;
         this.perfil.curso=data.curso;
         this.perfil.turno=data.turno;
-        this.perfil.img="http://127.0.0.1:1337/"+data.img;
-        this.perfil.qr=data.identificacion;
-        this.qr=data.identificacion;
+        this.perfil.img=data.img;
         this.perfil.hora_salida=data.hora_salida;
         this.perfil.hora_llegada=data.hora_llegada;
+        this.perfil.rol=data.rol;
+        if(data.rol==="tutor"){
+          this.perfil.alumnos=data.alumnos;
+        }else{
+          if(data.rol==="alumno"){
+            this.perfil.tutores=data.tutores;
+          }
+        }
+      // console.log(data);
     },err=>{
       console.error(err)
     })
   }
 
   ngOnInit() {
-  this.getPerfil();
+  
   }
   ngOnDestroy(){
     

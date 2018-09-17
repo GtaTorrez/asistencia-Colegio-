@@ -13,6 +13,10 @@ import { QRCodeModule } from 'angular2-qrcode';
 
 import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
 import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
+import { ConfigAvanzadoComponent } from './config-avanzado/config-avanzado.component';
+import { AvanzadoService } from './avanzado.service';
+import { VisualizadorPuertosComponent } from './visualizador-puertos/visualizador-puertos.component';
+import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
 
 const config:SocketIoConfig={url:'http://127.0.0.1:1338' ,options:{}};
 
@@ -20,7 +24,10 @@ const config:SocketIoConfig={url:'http://127.0.0.1:1338' ,options:{}};
   declarations: [
     AppComponent,
     PerfilAsistenciaComponent,
-    ConfiguracionesComponent
+    ConfiguracionesComponent,
+    ConfigAvanzadoComponent,
+    VisualizadorPuertosComponent,
+    PerfilEstudianteComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +38,7 @@ const config:SocketIoConfig={url:'http://127.0.0.1:1338' ,options:{}};
     ReactiveFormsModule,
     SocketIoModule.forRoot(config)
 ],
-providers:[AsistenciaService,ObservadorFondoService],
+providers:[AsistenciaService,ObservadorFondoService,AvanzadoService],
 bootstrap: [AppComponent]
 })
 export class AppModule { }

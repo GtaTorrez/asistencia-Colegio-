@@ -8,10 +8,11 @@ import 'rxjs/add/operator/map';
 export class AsistenciaService {
 
 
-  event:string='message';
+  event:string='asistencia';
   constructor(
     private socket:Socket
   ) { 
+    this.event='asistencia';
   }
 
   sendMessage(msg:string){

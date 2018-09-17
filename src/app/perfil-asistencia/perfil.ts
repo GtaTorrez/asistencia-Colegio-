@@ -6,11 +6,12 @@ export class Perfil{
     public curso:string=" ";
     public turno:string=" ";
     public img:string="";
-    public qr:string=" ";
-    celular:string=" ";
-    id:number;
-    hora_salida:string=" ";
-    hora_llegada:string=" ";
-    identificacion:string=" ";
-    tutores:any;
+    public rol:string=" ";
+    public celular:string=" ";
+    public id:number;
+    public hora_salida:string=" ";
+    public hora_llegada:string=" ";
+    public identificacion:string=" ";
+    public tutores:Perfil[];
+    public alumnos:Perfil[];
 }
