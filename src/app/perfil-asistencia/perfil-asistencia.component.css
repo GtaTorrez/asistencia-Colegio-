@@ -25,7 +25,7 @@
 .fondoHeader{
     position: relative;
     top: 20px;
-    /* background-color: rgba(0, 0, 0, 0.459); */
+    background-color: rgba(0, 0, 0, 0.459);
     margin-bottom: 20px;
     height: 110px;
 }
@@ -59,7 +59,7 @@ h1.tituloIns{
 
 .logo{
     position: absolute;
-    left: 10%;
+    left: 8%;
     margin-top: -40px;
 }
 .title{
