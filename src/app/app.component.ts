@@ -12,11 +12,19 @@ export class AppComponent implements OnInit{
   title = 'app';
   imgBackground="assets/img/fondof.jpg";
   subscription:Subscription;
+  subscriptionProtector:Subscription;
+
+  swProtector=true;
+
   constructor(private observador:ObservadorFondoService){
   	this.subscription=this.observador.observableFondo.subscribe(fondo=>{
       this.imgBackground=fondo+'?nocache='+parseInt(Math.random()*100+"");
   	});
-  	
+    
+    this.subscriptionProtector=this.observador.observableFondoProtector.subscribe(estado=>{
+      console.log(estado)
+      this.swProtector=estado;
+    })
   }
 
   ngOnInit(){

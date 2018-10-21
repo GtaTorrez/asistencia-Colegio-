@@ -4,10 +4,15 @@ import {HttpClient,HttpHeaders} from '@angular/common/http';
 @Injectable()
 export class ObservadorFondoService {
 
-	fondo:string;
+  fondo:string;
+  swProtector:boolean;
 	private _bhFondo=new BehaviorSubject<any>(this.fondo);
-  	observableFondo=this._bhFondo.asObservable();	
-  	base:string="http://127.0.0.1:1338";
+    observableFondo=this._bhFondo.asObservable();
+
+  private _bhFondoProtector=new BehaviorSubject<any>(this.swProtector);
+  	observableFondoProtector=this._bhFondoProtector.asObservable();	
+    
+  base:string="http://127.0.0.1:1338";
   
   constructor(private http:HttpClient) { 
 
@@ -16,6 +21,9 @@ export class ObservadorFondoService {
   cambiarEstado(nFondo:string){
     this.fondo=nFondo;
     this._bhFondo.next(this.fondo);
+  }
+  cambiarEstadoProtector(estado:boolean){
+    this._bhFondoProtector.next(estado);
   }
 
   getFoto(){
@@ -26,5 +34,7 @@ export class ObservadorFondoService {
   	let Headers=new HttpHeaders().set('Content-Type', 'multipart/form-data');
   	return this.http.post(this.base+'/upload',body);
   }
+
+
   
 }
