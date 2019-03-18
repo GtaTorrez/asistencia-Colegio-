@@ -21,10 +21,10 @@ export class AppComponent implements OnInit{
       this.imgBackground=fondo+'?nocache='+parseInt(Math.random()*100+"");
   	});
     
-    this.subscriptionProtector=this.observador.observableFondoProtector.subscribe(estado=>{
-      console.log(estado)
-      this.swProtector=estado;
-    })
+    // this.subscriptionProtector=this.observador.observableFondoProtector.subscribe(estado=>{
+    //   console.log(estado)
+    //   this.swProtector=estado;
+    // })
   }
 
   ngOnInit(){

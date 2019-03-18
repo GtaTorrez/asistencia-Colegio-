@@ -3,7 +3,7 @@ import { AsistenciaService }  from '../asistencia.service';
 import { QRCodeComponent } from 'angular2-qrcode';
 import { Perfil } from './perfil'; 
 import { ObservadorFondoService } from '../observador-fondo.service';
-
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-perfil-asistencia',
@@ -20,6 +20,7 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   titulo:boolean=true;
   contadorProtector:number=30;
   intervalclock;
+  subscriptionProtector:Subscription;
 
 
   constructor(
@@ -65,7 +66,21 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   }
 
   ngOnInit() {
-  
+  this.subscriptionProtector=this.observadorFondoService.observableFondoProtector.subscribe(estado=>{
+      // console.log(estado);
+      if(estado){
+        this.perfil.identificacion='';
+      this.perfil.paterno='';
+      this.perfil.materno='';
+      this.perfil.nombre='';
+      this.perfil.curso='';
+      this.perfil.turno='';
+      this.perfil.img='';
+      this.perfil.hora_salida='';
+      this.perfil.hora_llegada='';
+      this.perfil.rol='';
+      }
+    })
   }
   ngOnDestroy(){
     
@@ -80,9 +95,9 @@ export class PerfilAsistenciaComponent implements OnInit,OnDestroy {
   }
 
   iniciarContadorrotector(contador,observador){
-    console.log("contador iniciado")
+    // console.log("contador iniciado")
     this.intervalclock=setInterval(function(){
-      console.log(contador)
+      // console.log(contador)
       if(contador>0){
         contador--;
       }else{
