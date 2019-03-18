@@ -11,14 +11,14 @@ import { ObservadorFondoService} from './observador-fondo.service';
 import {HttpClientModule} from '@angular/common/http';
 import { QRCodeModule } from 'angular2-qrcode';
 
-import { SocketIoModule, SocketIoConfig } from 'ng-socket-io';
+import { NgIoModule, NgIoConfig } from 'ng-io';
 import { ConfiguracionesComponent } from './configuraciones/configuraciones.component';
 import { ConfigAvanzadoComponent } from './config-avanzado/config-avanzado.component';
 import { AvanzadoService } from './avanzado.service';
 import { VisualizadorPuertosComponent } from './visualizador-puertos/visualizador-puertos.component';
 import { PerfilEstudianteComponent } from './perfil-estudiante/perfil-estudiante.component';
 
-const config:SocketIoConfig={url:'http://127.0.0.1:1338' ,options:{}};
+const config:NgIoConfig={url:'http://127.0.0.1:1338' ,options:{}};
 
 @NgModule({
   declarations: [
@@ -36,7 +36,7 @@ const config:SocketIoConfig={url:'http://127.0.0.1:1338' ,options:{}};
     QRCodeModule,
     FormsModule,
     ReactiveFormsModule,
-    SocketIoModule.forRoot(config)
+    NgIoModule.forRoot(config)
 ],
 providers:[AsistenciaService,ObservadorFondoService,AvanzadoService],
 bootstrap: [AppComponent]

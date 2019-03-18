@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Socket } from 'ng-socket-io';
+import { SocketIo } from 'ng-io';
 
 
 @Injectable()
@@ -10,7 +10,7 @@ export class AsistenciaService {
 
   event:string='asistencia';
   constructor(
-    private socket:Socket
+    private socket:SocketIo
   ) { 
     this.event='asistencia';
   }

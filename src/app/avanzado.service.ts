@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Socket } from 'ng-socket-io';
+import { SocketIo } from 'ng-io';
 
 
 @Injectable()
@@ -9,7 +9,7 @@ export class AvanzadoService {
   event:string='handlePorts';
   constructor(
     private http:HttpClient,
-    private socket:Socket
+    private socket:SocketIo
   ) { }
 
   getUrlServe(){
