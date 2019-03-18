@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {BehaviorSubject} from 'rxjs';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 @Injectable()
 export class ObservadorFondoService {

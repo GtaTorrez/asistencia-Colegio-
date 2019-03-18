@@ -1,7 +1,7 @@
 import { Component ,OnInit } from '@angular/core';
 import {ObservadorFondoService} from "./observador-fondo.service"
 
-import {Subscription} from 'rxjs/Subscription';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-root',
